@@ -34,40 +34,19 @@ public class NumbersActivity extends AppCompatActivity {
         //initialize variable for linear layout
         LinearLayout rootView = findViewById(R.id.root_view);
 
-        //create a new text view object
-        TextView wordView = new TextView(this);
-
-        //create variable for index
+        //create index variable
         int index = 0;
 
-        //set text for first item of array list to new text view object
-        wordView.setText(words.get(index));
-
-        //add word view as a child to root view
-        rootView.addView(wordView);
-
-        //create a new text view object
-        TextView wordView2 = new TextView(this);
-
-        //increase integer by 1
-        index += 1;
-
-        //set text for first item of array list to new text view object
-        wordView2.setText(words.get(index));
-
-        //add word view 2 as a child to root view
-        rootView.addView(wordView2);
-
-        //create a new text view object
-        TextView wordView3 = new TextView(this);
-
-        //increase integer by 1
-        index += 1;
-
-        //set text for first item of array list to new text view object
-        wordView3.setText(words.get(index));
-
-        //add word view 2 as a child to root view
-        rootView.addView(wordView3);
+        //use loop to add each value of array list to the linear layout parent in a new text view
+        while(index < words.size()){
+            //create a new text view object
+            TextView wordView = new TextView(this);
+            //set text for each item of array list to new text view object
+            wordView.setText(words.get(index));
+            //add word view as a child to root view
+            rootView.addView(wordView);
+            //increase index by 1
+            index++;
+        }
     }
 }
