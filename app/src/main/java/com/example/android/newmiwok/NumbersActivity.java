@@ -37,8 +37,11 @@ public class NumbersActivity extends AppCompatActivity {
         //create a new text view object
         TextView wordView = new TextView(this);
 
+        //create variable for index
+        int index = 0;
+
         //set text for first item of array list to new text view object
-        wordView.setText(words.get(0));
+        wordView.setText(words.get(index));
 
         //add word view as a child to root view
         rootView.addView(wordView);
@@ -46,8 +49,11 @@ public class NumbersActivity extends AppCompatActivity {
         //create a new text view object
         TextView wordView2 = new TextView(this);
 
+        //increase integer by 1
+        index += 1;
+
         //set text for first item of array list to new text view object
-        wordView2.setText(words.get(1));
+        wordView2.setText(words.get(index));
 
         //add word view 2 as a child to root view
         rootView.addView(wordView2);
@@ -55,8 +61,11 @@ public class NumbersActivity extends AppCompatActivity {
         //create a new text view object
         TextView wordView3 = new TextView(this);
 
+        //increase integer by 1
+        index += 1;
+
         //set text for first item of array list to new text view object
-        wordView3.setText(words.get(2));
+        wordView3.setText(words.get(index));
 
         //add word view 2 as a child to root view
         rootView.addView(wordView3);
