@@ -3,6 +3,8 @@ package com.example.android.newmiwok;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -28,16 +30,35 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
 
-        //creates log messages for each element in the array list
-        Log.v("NumbersActivity", "Word at index 0 is: " + words.get(0));
-        Log.v("NumbersActivity", "Word at index 1 is: " + words.get(1));
-        Log.v("NumbersActivity", "Word at index 2 is: " + words.get(2));
-        Log.v("NumbersActivity", "Word at index 3 is: " + words.get(3));
-        Log.v("NumbersActivity", "Word at index 4 is: " + words.get(4));
-        Log.v("NumbersActivity", "Word at index 5 is: " + words.get(5));
-        Log.v("NumbersActivity", "Word at index 6 is: " + words.get(6));
-        Log.v("NumbersActivity", "Word at index 7 is: " + words.get(7));
-        Log.v("NumbersActivity", "Word at index 8 is: " + words.get(8));
-        Log.v("NumbersActivity", "Word at index 9 is: " + words.get(9));
+
+        //initialize variable for linear layout
+        LinearLayout rootView = findViewById(R.id.root_view);
+
+        //create a new text view object
+        TextView wordView = new TextView(this);
+
+        //set text for first item of array list to new text view object
+        wordView.setText(words.get(0));
+
+        //add word view as a child to root view
+        rootView.addView(wordView);
+
+        //create a new text view object
+        TextView wordView2 = new TextView(this);
+
+        //set text for first item of array list to new text view object
+        wordView2.setText(words.get(1));
+
+        //add word view 2 as a child to root view
+        rootView.addView(wordView2);
+
+        //create a new text view object
+        TextView wordView3 = new TextView(this);
+
+        //set text for first item of array list to new text view object
+        wordView3.setText(words.get(2));
+
+        //add word view 2 as a child to root view
+        rootView.addView(wordView3);
     }
 }
