@@ -14,11 +14,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //find the views for each category
         TextView numbers = findViewById(R.id.numbers);
         TextView colors = findViewById(R.id.colors);
         TextView phrases = findViewById(R.id.phrases);
         TextView familyMembers = findViewById(R.id.family);
 
+        //set a click listener to the numbers view
         numbers.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //set a click listener to the colors view
         colors.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //set a click listener to the phrases view
         phrases.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -46,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //set a click listener to the family members view
         familyMembers.setOnClickListener(new View.OnClickListener(){
 
             @Override
