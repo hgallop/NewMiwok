@@ -11,18 +11,18 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_numbers);
 
         //declare a new array of strings
-        String [] numbersArray = new String[10];
+        String [] words = new String[10];
 
         //initialize each index of the array
-        numbersArray[0] = "one";
-        numbersArray[1] = "two";
-        numbersArray[2] = "three";
-        numbersArray[3] = "four";
-        numbersArray[4] = "five";
-        numbersArray[5] = "six";
-        numbersArray[6] = "seven";
-        numbersArray[7] = "eight";
-        numbersArray[8] = "nine";
-        numbersArray[9] = "ten";
+        words[0] = "one";
+        words[1] = "two";
+        words[2] = "three";
+        words[3] = "four";
+        words[4] = "five";
+        words[5] = "six";
+        words[6] = "seven";
+        words[7] = "eight";
+        words[8] = "nine";
+        words[9] = "ten";
     }
 }
