@@ -20,16 +20,16 @@ public class NumbersActivity extends AppCompatActivity {
         ArrayList<Word> words = new ArrayList<>();
 
         //initialize each index of the array list
-        words.add(new Word("lutti","one"));
-        words.add(new Word("otiiko","two"));
-        words.add(new Word("tolookosu","three"));
-        words.add(new Word("oyyisa","four"));
-        words.add(new Word( "massokka","five"));
-        words.add(new Word("temmokka","six"));
-        words.add(new Word("kenekaku","seven"));
-        words.add(new Word("kawinta","eight"));
-        words.add(new Word("wo’e","nine"));
-        words.add(new Word("na’aacha","ten"));
+        words.add(new Word("one","lutti"));
+        words.add(new Word("two","otiiko"));
+        words.add(new Word("three","tolookosu"));
+        words.add(new Word("four","oyyisa"));
+        words.add(new Word( "five","massokka"));
+        words.add(new Word("six","temmokka"));
+        words.add(new Word("seven","kenekaku"));
+        words.add(new Word("eight","kawinta"));
+        words.add(new Word("nine","wo’e"));
+        words.add(new Word("ten", "na’aacha"));
 
         //create an array adapter object that makes a layout of a single text view, predefined by android, for each array list item in words
         WordAdapter adapter = new WordAdapter(this, words);

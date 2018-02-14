@@ -7,22 +7,22 @@ package com.example.android.newmiwok;
 public class Word {
 
     //create variables for each translation
-    private String mMiwokTranslation;
     private String mDefaultTranslation;
+    private String mMiwokTranslation;
 
     //constructor for Word object
-    public Word(String miwokTranslation, String defaultTranslation) {
-        mMiwokTranslation = miwokTranslation;
+    public Word(String defaultTranslation, String miwokTranslation) {
         mDefaultTranslation = defaultTranslation;
-    }
-
-    //accessor. allows miwok translation to be accessed
-    public String getMiwokTranslation(){
-        return mMiwokTranslation;
+        mMiwokTranslation = miwokTranslation;
     }
 
     //accessor. allows default translation to be accessed.
     public String getDefaultTranslation(){
         return mDefaultTranslation;
+    }
+
+    //accessor. allows miwok translation to be accessed
+    public String getMiwokTranslation(){
+        return mMiwokTranslation;
     }
 }
