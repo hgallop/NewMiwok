@@ -17,27 +17,27 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_numbers);
 
         //declare a new array list of strings
-        ArrayList<String>words = new ArrayList<>();
+        ArrayList<Word> words = new ArrayList<>();
 
         //initialize each index of the array list
-        words.add("one");
-        words.add("two");
-        words.add("three");
-        words.add("four");
-        words.add("five");
-        words.add("six");
-        words.add("seven");
-        words.add("eight");
-        words.add("nine");
-        words.add("ten");
+        words.add(new Word("lutti","one"));
+        words.add(new Word("otiiko","two"));
+        words.add(new Word("tolookosu","three"));
+        words.add(new Word("oyyisa","four"));
+        words.add(new Word( "massokka","five"));
+        words.add(new Word("temmokka","six"));
+        words.add(new Word("kenekaku","seven"));
+        words.add(new Word("kawinta","eight"));
+        words.add(new Word("wo’e","nine"));
+        words.add(new Word("na’aacha","ten"));
 
         //create an array adapter object that makes a layout of a single text view, predefined by android, for each array list item in words
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, words);
+        WordAdapter adapter = new WordAdapter(this, words);
 
         // creates a variable for the list view layout from activity_numbers
         ListView listView = findViewById(R.id.list);
 
         //sets the array adapter to the list view layout
-        listView.setAdapter(itemsAdapter);
+        listView.setAdapter(adapter);
     }
 }
