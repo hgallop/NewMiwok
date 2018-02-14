@@ -34,10 +34,10 @@ public class NumbersActivity extends AppCompatActivity {
         //create an array adapter object that makes a layout of a single text view, predefined by android, for each array list item in words
         ArrayAdapter<String> itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, words);
 
-        // createa a variable for the grid view layout from activity_numbers
-        GridView gridView = findViewById(R.id.grid);
+        // creates a variable for the list view layout from activity_numbers
+        ListView listView = findViewById(R.id.list);
 
-        //sets the array adapter to the grid view layout
-        gridView.setAdapter(itemsAdapter);
+        //sets the array adapter to the list view layout
+        listView.setAdapter(itemsAdapter);
     }
 }
