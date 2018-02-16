@@ -17,6 +17,7 @@ public class Word {
         mMiwokTranslation = miwokTranslation;
     }
 
+    //constructor for word object with an image
     public Word(String defaultTranslation, String miwokTranslation, int imageResourceId){
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
