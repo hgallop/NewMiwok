@@ -3,6 +3,7 @@ package com.example.android.newmiwok;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    private int color;
+    private int mColorResourceId;
 
     public WordAdapter(Activity context, ArrayList<Word> words, int color) {
         // initialize the word adapter's internal storage for the context and the list.
@@ -27,7 +28,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // this is a custom adapter for two text views. the adapter is not
         // going to use the second argument, it can be any value. here it is 0.
         super(context, 0, words);
-        this.color = color;
+        mColorResourceId = color;
     }
 
 
@@ -44,7 +45,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
         //retrieves the current Word object from array list for Words
         Word currentWord = getItem(position);
 
-        LinearLayout listItem = (LinearLayout)listItemView.findViewById(R.id.text_container);
+        //set theme color for the list item
+        View listItem = listItemView.findViewById(R.id.text_container);
+        int color = ContextCompat.getColor(getContext(), mColorResourceId);
         listItem.setBackgroundColor(color);
 
         //sets the data from the current miwok translation to the correct text view in the list_item layout
