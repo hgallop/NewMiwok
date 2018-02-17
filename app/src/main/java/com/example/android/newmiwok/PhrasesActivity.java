@@ -29,7 +29,7 @@ public class PhrasesActivity extends AppCompatActivity {
         words.add(new Word("Come here.","әnni'nem"));
 
         //create an array adapter object that makes a layout of a single text view, predefined by android, for each array list item in words
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words,  getResources().getColor(R.color.category_phrases));
 
         // creates a variable for the list view layout from word_list
         ListView listView = findViewById(R.id.list);

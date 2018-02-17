@@ -18,8 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/list_item_height"
         android:paddingLeft="16dp"
-        android:orientation="vertical"
-        android:background="@color/category_numbers">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/miwok_text_view"

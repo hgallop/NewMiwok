@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,12 +19,15 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    public WordAdapter(Activity context, ArrayList<Word> words) {
+    private int color;
+
+    public WordAdapter(Activity context, ArrayList<Word> words, int color) {
         // initialize the word adapter's internal storage for the context and the list.
         // second argument is used when the array adapter populates a single text view.
         // this is a custom adapter for two text views. the adapter is not
         // going to use the second argument, it can be any value. here it is 0.
         super(context, 0, words);
+        this.color = color;
     }
 
 
@@ -39,6 +43,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         //retrieves the current Word object from array list for Words
         Word currentWord = getItem(position);
+
+        LinearLayout listItem = (LinearLayout)listItemView.findViewById(R.id.text_container);
+        listItem.setBackgroundColor(color);
 
         //sets the data from the current miwok translation to the correct text view in the list_item layout
         TextView miwokTextView = listItemView.findViewById(R.id.miwok_text_view);
