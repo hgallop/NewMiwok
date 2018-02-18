@@ -53,4 +53,15 @@ public class Word {
     public int getMiwokAudio(){
         return mMiwokAudio;
     }
+
+    //overrides built in class method toString. constructs a string fom each item in Word object
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mMiwokAudio=" + mMiwokAudio +
+                ", mImageResourceId=" + mImageResourceId +
+                '}';
+    }
 }
