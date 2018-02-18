@@ -1,6 +1,8 @@
 package com.example.android.newmiwok;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -31,7 +33,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
         mColorResourceId = color;
     }
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Check if the existing view is being reused, otherwise inflate a new view
@@ -43,7 +44,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
 
         //retrieves the current Word object from array list for Words
-        Word currentWord = getItem(position);
+         Word currentWord = getItem(position);
 
         //set theme color for the list item
         View listItem = listItemView.findViewById(R.id.text_container);

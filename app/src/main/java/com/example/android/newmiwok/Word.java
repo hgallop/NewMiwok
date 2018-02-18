@@ -49,4 +49,8 @@ public class Word {
 
 
     }
+
+    public int getMiwokAudio(){
+        return mMiwokAudio;
+    }
 }
