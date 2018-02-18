@@ -19,7 +19,7 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         //declare a new array list of strings
-        ArrayList<Word> words = new ArrayList<>();
+        final ArrayList<Word> words = new ArrayList<>();
 
         //initialize each index of the array list
         words.add(new Word("one", "lutti", R.drawable.number_one, R.raw.number_one));
@@ -45,7 +45,8 @@ public class NumbersActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-                mediaPlayer =  mediaPlayer.create(NumbersActivity.this, R.raw.number_one);
+                Word word = words.get(pos);
+                mediaPlayer =  mediaPlayer.create(NumbersActivity.this, word.getMiwokAudio());
                 mediaPlayer.start();
             }
         });

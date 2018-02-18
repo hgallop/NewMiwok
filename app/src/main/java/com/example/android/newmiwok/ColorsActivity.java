@@ -1,12 +1,17 @@
 package com.example.android.newmiwok;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class ColorsActivity extends AppCompatActivity {
+
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +19,7 @@ public class ColorsActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         //declare a new array list of strings
-        ArrayList<Word> words = new ArrayList<>();
+        final ArrayList<Word> words = new ArrayList<>();
 
         //initialize each index of the array list
         words.add(new Word("red","weṭeṭṭi", R.drawable.color_red, R.raw.color_red));
@@ -34,6 +39,15 @@ public class ColorsActivity extends AppCompatActivity {
 
         //sets the array adapter to the list view layout
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+                Word word = words.get(pos);
+                mediaPlayer =  mediaPlayer.create(ColorsActivity.this, word.getMiwokAudio());
+                mediaPlayer.start();
+            }
+        });
     }
 
 
