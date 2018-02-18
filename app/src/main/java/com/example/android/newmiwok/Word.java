@@ -9,21 +9,24 @@ public class Word {
     //create variables for each translation and the image to describe them
     private String mDefaultTranslation;
     private String mMiwokTranslation;
+    private int mMiwokAudio;
     private int mImageResourceId = NO_IMAGE_PROVIDED;
 
     private static final int NO_IMAGE_PROVIDED = -1;
 
     //constructor for Word object
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int miwokAudio) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mMiwokAudio = miwokAudio;
     }
 
     //constructor for word object with an image
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId){
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int miwokAudio){
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+        mMiwokAudio = miwokAudio;
     }
 
     //accessor. allows default translation to be accessed.
