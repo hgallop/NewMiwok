@@ -46,6 +46,8 @@ public class ColorsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         audioManager = (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
 
         //declare a new array list of strings
