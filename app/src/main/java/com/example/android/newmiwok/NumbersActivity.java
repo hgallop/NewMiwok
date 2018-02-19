@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
 
-    MediaPlayer mediaPlayer;
-    AudioManager audioManager;
+    private MediaPlayer mediaPlayer;
+    private AudioManager audioManager;
 
     //creates callback for determining when player has finished
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
@@ -77,12 +77,22 @@ public class NumbersActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
                 //calls method to check if not null, then release and set to null
                 releaseMediaPlayer();
+
+                //get position of word in array list
                 Word word = words.get(pos);
-                audioManager.requestAudioFocus(changeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
-                mediaPlayer =  mediaPlayer.create(NumbersActivity.this, word.getMiwokAudio());
-                mediaPlayer.start();
-                //checks to see if file has finished playing
-                mediaPlayer.setOnCompletionListener(mCompletionListener);
+
+                //store focus request in result
+                int result = audioManager.requestAudioFocus(changeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+
+                //confirm focus request was granted
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    //create media playboack for sound
+                    mediaPlayer = mediaPlayer.create(NumbersActivity.this, word.getMiwokAudio());
+                    //start media playback
+                    mediaPlayer.start();
+                    //checks to see if file has finished playing, releases media player when finished
+                    mediaPlayer.setOnCompletionListener(mCompletionListener);
+                }
             }
         });
     }
