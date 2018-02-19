@@ -1,5 +1,7 @@
 package com.example.android.newmiwok;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 public class ColorsActivity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
+    AudioManager audioManager;
 
     //creates callback for determining when player has finished
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
@@ -22,10 +25,28 @@ public class ColorsActivity extends AppCompatActivity {
         }
     };
 
+    AudioManager.OnAudioFocusChangeListener changeListener =
+            new AudioManager.OnAudioFocusChangeListener() {
+                public void onAudioFocusChange(int focusChange) {
+                    if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||focusChange ==
+                            AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+                        mediaPlayer.pause();
+                        mediaPlayer.seekTo(0);
+                    } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+                        mediaPlayer.stop();
+                        releaseMediaPlayer();
+                    } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
+                        mediaPlayer.start();
+                    }
+                }
+            };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
+
+        audioManager = (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
 
         //declare a new array list of strings
         final ArrayList<Word> words = new ArrayList<>();
@@ -55,6 +76,7 @@ public class ColorsActivity extends AppCompatActivity {
                 //calls method to check if not null, then release and set to null
                 releaseMediaPlayer();
                 Word word = words.get(pos);
+                audioManager.requestAudioFocus(changeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
                 mediaPlayer =  mediaPlayer.create(ColorsActivity.this, word.getMiwokAudio());
                 mediaPlayer.start();
                 //checks to see if file has finished playing
@@ -76,6 +98,14 @@ public class ColorsActivity extends AppCompatActivity {
             // setting the media player to null is an easy way to tell that the media player
             // is not configured to play an audio file at the moment.
             mediaPlayer = null;
+
+            audioManager.abandonAudioFocus(changeListener);
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
     }
 }
