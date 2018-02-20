@@ -16,14 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:parentActivityName="com.example.android.newmiwok.MainActivity" android:name="com.example.android.newmiwok.NumbersActivity" android:label="@string/category_numbers" />
-        <activity android:parentActivityName="com.example.android.newmiwok.MainActivity" android:name="com.example.android.newmiwok.PhrasesActivity" android:label="@string/category_phrases"/>
-        <activity android:parentActivityName="com.example.android.newmiwok.MainActivity" android:name="com.example.android.newmiwok.ColorsActivity" android:label="@string/category_colors"/>
-        <activity android:parentActivityName="com.example.android.newmiwok.MainActivity" android:name="com.example.android.newmiwok.FamilyMembersActivity" android:label="@string/category_family"></activity>
-
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.android.newmiwok.MainActivity" />
     </application>
 
 </manifest>
