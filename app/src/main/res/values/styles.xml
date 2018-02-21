@@ -31,5 +31,16 @@
         <item name="android:paddingLeft">@dimen/margin</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
+    
+    <style name="TabAppearance" parent="Widget.Design.TabLayout">
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/TabText</item>
+        <item name="tabIndicatorColor">@android:color/white</item>
+        <item name="tabSelectedTextColor">@android:color/white</item>
+    </style>
+    
+    <style name="TabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/tabUnselected</item>
+    </style>
 </resources>
 
